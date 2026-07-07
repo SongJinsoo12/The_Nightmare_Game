@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColliderComponent.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="MoveComponent.cs" />
+    <Compile Include="SpriteRenderComponent.cs" />
+    <Compile Include="StatsComponent.cs" />
     <Compile Include="Test.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
