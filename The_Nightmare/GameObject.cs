@@ -12,7 +12,7 @@ namespace The_Nightmare
         public int Y { get; set; }
 
         public StatsComponent Stats { get; set; }
-        public SpriteRenderComponent Sprite { get; set; }
+        public SpriteRenderComponent Render { get; set; }
         public MoveComponent Move { get; set; }
         public ColliderComponent Collider { get; set; }
         public GameObject(int _x, int _y)

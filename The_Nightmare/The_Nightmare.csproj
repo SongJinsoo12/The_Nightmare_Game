@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="ColliderComponent.cs" />
     <Compile Include="Component.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="MoveComponent.cs" />
     <Compile Include="SpriteRenderComponent.cs" />

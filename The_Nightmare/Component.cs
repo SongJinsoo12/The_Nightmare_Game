@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    public class Component
+    public abstract class Component
     {
         public GameObject Owner { get; set; }
     }
