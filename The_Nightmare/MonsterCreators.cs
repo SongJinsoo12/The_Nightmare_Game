@@ -25,7 +25,7 @@ namespace The_Nightmare
             skeleton.Stats = new StatsComponent(50, 10, 5, 2);
             skeleton.Render = new SpriteRenderComponent("SkeletonSprite");
             skeleton.Collider = new ColliderComponent();
-            skeleton.AI = new ChaseComponent(_playerRef);
+            skeleton.AI = new MonsterAIComponent(_playerRef);
 
             return skeleton;
         }

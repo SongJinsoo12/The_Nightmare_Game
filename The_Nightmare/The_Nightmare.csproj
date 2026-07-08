@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Component\AIComponent.cs" />
-    <Compile Include="Component\ChaseComponent.cs" />
+    <Compile Include="Component\MonsterAIComponent.cs" />
     <Compile Include="Component\ColliderComponent.cs" />
     <Compile Include="Component\Component.cs" />
     <Compile Include="GameManager.cs" />
