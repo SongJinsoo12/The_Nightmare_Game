@@ -1,0 +1,15 @@
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\The Nightmare.exe.config
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\The Nightmare.exe
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\The Nightmare.pdb
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.csproj.AssemblyReference.cache
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\MainWindow.g.cs
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\App.g.cs
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare_MarkupCompile.cache
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare_MarkupCompile.lref
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\MainWindow.baml
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.g.resources
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The_Nightmare.Properties.Resources.resources
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.csproj.GenerateResource.cache
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.csproj.CoreCompileInputs.cache
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.exe
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.pdb
