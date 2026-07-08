@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,11 +13,14 @@ namespace The_Nightmare
         private static readonly Dictionary<string, ICreator> _creators = 
             new Dictionary<string, ICreator>();
 
-        static ObjectFactory()
+        static ObjectFactory() { }
+        
+        public static void Initialize(GameObject player, string typeName, ICreator creator)
         {
             // 도감에 몬스터 생성자 등록
-            RegisterCreator("Skeleton", new SkeletonCreator());
+            RegisterCreator("Skeleton", new SkeletonCreator(player));
         }
+
         public static void RegisterCreator(string typeName, ICreator creator)
         {
             if (!_creators.ContainsKey(typeName))

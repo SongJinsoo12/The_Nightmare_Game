@@ -8,6 +8,8 @@ namespace The_Nightmare
 {
     public class GameManager
     {
+        public List<GameObject> Monsters { get; private set; } = new List<GameObject>();
+
         public int[,] Map { get; private set; }
         // 플레이어 & 몬스터 갖고오기
 
@@ -19,9 +21,17 @@ namespace The_Nightmare
             // 예시
             GameObject player = new GameObject(1, 1);
             player.Move = new MoveComponent();
-            player.Stats = new StatsComponent(100, 10, 5);
+            player.Stats = new StatsComponent(100, 10, 5, 3);
             player.Render = new SpriteRenderComponent("Assets/Player.png");
             player.Collider = new ColliderComponent();
+
+            //몬스터
+            ObjectFactory.Initialize(player, "Skeleton", new SkeletonCreator(player));
+            GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
+            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 20, 20);
+
+            Monsters.Add(skeleton1);
+            Monsters.Add(skeleton2);
         }
         public void ProcessInput()
         {

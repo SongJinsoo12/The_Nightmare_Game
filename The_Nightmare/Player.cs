@@ -33,7 +33,7 @@ namespace The_Nightmare
         public Player(int _x, int _y) : base(_x, _y)
         {
             this.Move = new MoveComponent();
-            this.Stats = new StatsComponent(100, 10, 5);
+            this.Stats = new StatsComponent(100, 10, 5, 3);
         }
 
         public void TryMove(int dx, int dy, int[,] map)
