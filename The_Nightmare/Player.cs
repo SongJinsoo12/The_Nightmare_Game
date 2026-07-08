@@ -99,6 +99,16 @@ namespace The_Nightmare
             ChangeState(PlayerState.Idle);
         }
 
+        public void OnHit(int damage)
+        {
+            if (CurrentState == PlayerState.Dead) return;
+            
+            if(CurrentState != PlayerState.Hit && CurrentState != PlayerState.Attacking) 
+                ChangeState(PlayerState.Hit);
+            Stats.TakeDamage(damage);
+        }
+
+        // 무기 장착
         public void EquipWeapon(int weaponAtk)
         {
             WeaponAtk = weaponAtk;
