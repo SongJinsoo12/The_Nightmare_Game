@@ -8,6 +8,7 @@ namespace The_Nightmare
 {
     public class GameManager
     {
+        public GameObject Player { get; private set; }
         public List<GameObject> Monsters { get; private set; } = new List<GameObject>();
 
         public int[,] Map { get; private set; }
@@ -19,14 +20,14 @@ namespace The_Nightmare
             // 초기화
 
             // 예시
-            GameObject player = new GameObject(1, 1);
-            player.Move = new MoveComponent();
-            player.Stats = new StatsComponent(100, 10, 5, 3);
-            player.Render = new SpriteRenderComponent("Assets/Player.png");
-            player.Collider = new ColliderComponent();
+            Player = new GameObject(1, 1);
+            Player.Move = new MoveComponent();
+            Player.Stats = new StatsComponent(100, 10, 5, 3);
+            Player.Render = new SpriteRenderComponent("Assets/Player.png");
+            Player.Collider = new ColliderComponent();
 
             //몬스터
-            ObjectFactory.Initialize(player, "Skeleton", new SkeletonCreator(player));
+            ObjectFactory.Initialize(Player, "Skeleton", new SkeletonCreator(Player));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
             GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 20, 20);
 

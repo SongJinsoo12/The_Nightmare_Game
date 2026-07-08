@@ -18,7 +18,7 @@ namespace The_Nightmare
         public static void Initialize(GameObject player, string typeName, ICreator creator)
         {
             // 도감에 몬스터 생성자 등록
-            RegisterCreator("Skeleton", new SkeletonCreator(player));
+            RegisterCreator(typeName, creator);
         }
 
         public static void RegisterCreator(string typeName, ICreator creator)
