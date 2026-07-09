@@ -41,7 +41,7 @@ namespace The_Nightmare
 
         public void Rotate(double angle)
         {
-            RotationAngle = angle;
+            RotationAngle = angle % 360;
         }
 
         public void FlipSprite()

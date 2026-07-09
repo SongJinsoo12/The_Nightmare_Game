@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
+    public static class Time
+    {
+        public static double DeltaTime { get; set; }
+        public static double TimeScale { get; set; } = 1.0;
+
+        public static double MyDeltaTime => DeltaTime * TimeScale;
+    }
     public class GameManager
     {
         public int[,] Map { get; private set; }
