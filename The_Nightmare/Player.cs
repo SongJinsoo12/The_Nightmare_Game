@@ -23,6 +23,10 @@ namespace The_Nightmare
     }
     public class Player : GameObject
     {
+        // 추가 스탯
+        public double m_stamina { get; private set; } = 100;
+        public int m_mana { get; private set; } = 100;
+
         public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
         public Direction FacingDirection { get; private set; } = Direction.Down;
 
@@ -30,10 +34,12 @@ namespace The_Nightmare
         public int WeaponAtk { get; private set; } = 0;
         public int TotalAtk => (Stats?.Atk ?? 0) + WeaponAtk;
 
-        public Player(int _x, int _y) : base(_x, _y)
+        public Player(int _x, int _y, double _stamina, int _mana) : base(_x, _y)
         {
             this.Move = new MoveComponent();
-            this.Stats = new StatsComponent(100, 10, 5);
+            this.Stats = new StatsComponent(100, 10, 5, 1.0);
+            m_stamina = _stamina;
+            m_mana = _mana;
         }
 
         public void TryMove(int dx, int dy, int[,] map)

@@ -12,13 +12,24 @@ namespace The_Nightmare
     {
         public ImageSource SpriteImage { get; private set; }
 
-        public SpriteRenderComponent(string imagePath)
+        // 사이즈 및 각도 변수
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double RotationAngle { get; set; }
+        public bool Flip { get; set; }
+
+        public SpriteRenderComponent(string imagePath,
+            double defaultWidth = 32, double defaultHeight = 32)
         {
+            Width = defaultWidth;
+            Height = defaultHeight;
+            RotationAngle = 0;
+            Flip = false;
+
             try
             {
                 // 이미지 로드 시도
                 SpriteImage = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
-
             }
             catch (Exception ex)
             {
@@ -26,6 +37,21 @@ namespace The_Nightmare
                 Console.WriteLine($"Error loading image: {ex.Message}");
                 SpriteImage = null;
             }
+        }
+
+        public void Rotate(double angle)
+        {
+            RotationAngle = angle;
+        }
+
+        public void FlipSprite()
+        {
+            Flip = !Flip;
+        }
+        public void SetSize(double width, double height)
+        {
+            Width = width;
+            Height = height;
         }
     }
 }

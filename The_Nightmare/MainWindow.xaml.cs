@@ -23,6 +23,7 @@ namespace The_Nightmare
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

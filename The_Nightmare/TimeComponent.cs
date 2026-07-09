@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    internal class Test
+    public class TimeComponent
     {
+
     }
 }
