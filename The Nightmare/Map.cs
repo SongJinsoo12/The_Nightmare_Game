@@ -10,17 +10,24 @@ using System.Windows.Shapes;
 
 namespace The_Nightmare
 {
+    public enum Tile
+    {
+        E_WALL = 0,
+        E_WATER,
+        E_TREE,
+    }
     public class MapBlock
     {
-        public int[,] Tiles { get; set; }
-        public int Width => 1280 / 16;
-        public int Height => 720 / 16;
+        Canvas m_canvas = new Canvas();
+        public Tile[,] Tiles { get; set; }
+        public int Width => (1280 - 256) / 16;
+        public int Height => (720 - 16) / 16;
 
         public MapBlock()
         {
-            Tiles = new int[Width, Height];
+            Tiles = new Tile[Width, Height];
         }
-        public MapBlock(int[,] tiles)
+        public MapBlock(Tile[,] tiles)
         {
             Tiles = tiles;
         }
@@ -32,7 +39,7 @@ namespace The_Nightmare
         public int rows => 3;
         public int cols => 3;
         private const int TileSize = 16;
-        Point cur_pos { get; set; }
+        public Point cur_pos { get; set; }
 
         public DungeonMap()
         {
@@ -47,23 +54,36 @@ namespace The_Nightmare
             Blocks[p_row, p_col] = p_block;
         }
 
+        public void MoveMap(Point p_pos)
+        {
+            cur_pos = p_pos;
+        }
+
         public void Render(Canvas canvas)
         {
             canvas.Children.Clear();
 
             MapBlock block = Blocks[(int)cur_pos.Y, (int)cur_pos.X];
 
-            for (int y = 0; y < block.Tiles.GetLength(0); y++)
+            for (int y = 0; y < block.Height; y++)
             {
-                for (int x = 0; x < block.Tiles.GetLength(1); x++)
+                for (int x = 0; x < block.Width; x++)
                 {
-                    int tile = block.Tiles[y, x];
-
+                    Tile tile = block.Tiles[y, x];
+                    SolidColorBrush brush = null;
+                    switch (tile)
+                    {
+                        case Tile.E_WALL:
+                            brush = Brushes.DarkGray; break;
+                        case Tile.E_WATER: brush = Brushes.SkyBlue; break;
+                        case Tile.E_TREE: brush = Brushes.Gold; break;
+                        default: break;
+                    }
                     Rectangle rect = new Rectangle
                     {
                         Width = TileSize,
                         Height = TileSize,
-                        Fill = (tile == 0) ? Brushes.DarkSlateGray : Brushes.LightGray
+                        Fill = brush
                     };
 
                     double posX = (x * TileSize + 128);
