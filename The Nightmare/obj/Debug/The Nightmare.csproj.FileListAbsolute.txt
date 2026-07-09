@@ -13,3 +13,18 @@ D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.csproj.Generat
 D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.csproj.CoreCompileInputs.cache
 D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.exe
 D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nightmare.pdb
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\bin\Debug\The Nightmare.exe.config
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\bin\Debug\The Nightmare.exe
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\bin\Debug\The Nightmare.pdb
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\MainWindow.g.cs
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\App.g.cs
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare_MarkupCompile.cache
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare_MarkupCompile.lref
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\MainWindow.baml
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.g.resources
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The_Nightmare.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.exe
+C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.pdb
