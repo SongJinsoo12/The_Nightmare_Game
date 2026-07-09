@@ -20,9 +20,16 @@ namespace The_Nightmare
     /// </summary>
     public partial class MainWindow : Window
     {
+        GameManager gameManager;
         public MainWindow()
         {
             InitializeComponent();
+
+            gameManager = new GameManager(MyCanvas);
+            gameManager.Update();
+            gameManager.Render();
+
+            
         }
     }
 }

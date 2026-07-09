@@ -23,7 +23,7 @@ namespace The_Nightmare
             // 컴포넌트 조립
             skeleton.Move = new MoveComponent();
             skeleton.Stats = new StatsComponent(50, 10, 5, 2);
-            skeleton.Render = new SpriteRenderComponent("SkeletonSprite");
+            skeleton.Render = new SpriteRenderComponent("pack://application:,,/skeleton.png");
             skeleton.Collider = new ColliderComponent();
             skeleton.AI = new MonsterAIComponent(_playerRef);
 
