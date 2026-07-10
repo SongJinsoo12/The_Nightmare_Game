@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "D:\\vsc_guitar\\The Nightmare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|D:\\vsc_guitar\\The Nightmare\\the nightmare\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|d:\\vsc_guitar\\the nightmare\\the nightmare\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|solutionrelative:the nightmare\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|d:\\vsc_guitar\\the nightmare\\the nightmare\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|D:\\vsc_guitar\\The Nightmare\\the nightmare\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|solutionrelative:the nightmare\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|d:\\vsc_guitar\\the nightmare\\the nightmare\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|D:\\vsc_guitar\\The Nightmare\\the nightmare\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2A1934DD-DD52-4857-A2D8-FFA676AE847F}|The Nightmare\\The Nightmare.csproj|solutionrelative:the nightmare\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "The Nightmare\\Map.cs",
               "ToolTip": "D:\\vsc_guitar\\The Nightmare\\The Nightmare\\Map.cs",
               "RelativeToolTip": "The Nightmare\\Map.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAvwCAAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-08T16:53:15.077Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "The Nightmare\\MainWindow.xaml.cs",
               "ToolTip": "D:\\vsc_guitar\\The Nightmare\\The Nightmare\\MainWindow.xaml.cs",
               "RelativeToolTip": "The Nightmare\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAmwGsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-04T08:54:40.379Z",
               "EditorCaption": ""

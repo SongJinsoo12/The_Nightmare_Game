@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace The_Nightmare
+{
+    public abstract class Component
+    {
+        public GameObject Owner { get; set; }
+    }
+}

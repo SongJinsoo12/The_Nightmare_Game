@@ -41,7 +41,8 @@
               "ToolTip": "D:\\vsc_guitar\\The Nightmare\\The Nightmare\\MainWindow.xaml",
               "RelativeToolTip": "The Nightmare\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-07-04T08:54:42.97Z"
+              "WhenOpened": "2026-07-04T08:54:42.97Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -51,9 +52,10 @@
               "RelativeDocumentMoniker": "The Nightmare\\Map.cs",
               "ToolTip": "D:\\vsc_guitar\\The Nightmare\\The Nightmare\\Map.cs",
               "RelativeToolTip": "The Nightmare\\Map.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAvwCAAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-08T16:53:15.077Z"
+              "WhenOpened": "2026-07-08T16:53:15.077Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -63,7 +65,7 @@
               "RelativeDocumentMoniker": "The Nightmare\\MainWindow.xaml.cs",
               "ToolTip": "D:\\vsc_guitar\\The Nightmare\\The Nightmare\\MainWindow.xaml.cs",
               "RelativeToolTip": "The Nightmare\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAmwGQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-04T08:54:40.379Z",
               "EditorCaption": ""
