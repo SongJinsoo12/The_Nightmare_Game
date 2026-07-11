@@ -14,6 +14,15 @@ namespace The_Nightmare.Component
         public double DetectRange { get; private set; } = 10.0;
         public double AttackRange { get; private set; } = 2.0;
 
+        public event Action<MonsterState> OnStateChange;
+
+        public void ChangeState(MonsterState newState)
+        {
+            if (_curState == newState) return;
+            _curState = newState;
+            OnStateChange?.Invoke(_curState);
+        }
+
         public MonsterAIComponent(GameObject target)
         {
             _target = target;
@@ -47,7 +56,7 @@ namespace The_Nightmare.Component
 
             if (GetDistance(owner, _target) <= DetectRange)
             {
-                _curState = MonsterState.CHASE;
+                ChangeState(MonsterState.CHASE);
             }
         }
 
@@ -62,12 +71,12 @@ namespace The_Nightmare.Component
 
             if (distance <= AttackRange)
             {
-                _curState = MonsterState.ATTACK;
+                ChangeState(MonsterState.ATTACK);
                 return;
             }
             else if (distance > DetectRange) 
             {
-                _curState = MonsterState.IDLE;
+                ChangeState(MonsterState.IDLE);
                 return;
             }
 
@@ -88,7 +97,7 @@ namespace The_Nightmare.Component
 
             if (GetDistance(owner, _target) > AttackRange)
             {
-                _curState = MonsterState.CHASE;
+                ChangeState(MonsterState.CHASE);
             }
         }
 

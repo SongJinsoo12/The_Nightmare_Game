@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -12,6 +13,23 @@ namespace The_Nightmare
     public class SpriteRenderComponent
     {
         public ImageSource SpriteImage { get; private set; }
+        public Image SpriteControl { get; private set; }
+
+        public SpriteRenderComponent()
+        {
+            SpriteControl = new Image();
+        }
+
+        public void Update(GameObject owner)
+        {
+            Canvas.SetLeft(SpriteControl, owner.X);
+            Canvas.SetTop(SpriteControl, owner.Y);
+
+            if (owner.Animator != null)
+            {
+                SpriteControl.Source = owner.Animator.Controller.GetCurrentFrame();
+            }
+        }
 
         public SpriteRenderComponent(string imagePath)
         {
@@ -21,6 +39,25 @@ namespace The_Nightmare
                 SpriteImage = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
 
 
+            }
+            catch (Exception ex)
+            {
+                // 이미지 로드 실패 시 예외 처리
+                Console.WriteLine($"Error loading image: {ex.Message}");
+                SpriteImage = null;
+            }
+        }
+
+        public SpriteRenderComponent(string imagePath, int x, int y, int width, int height)
+        {
+            try
+            {
+                // 이미지 로드 시도
+                BitmapImage originBitmap = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+
+                Int32Rect croptImage = new Int32Rect(x, y, width, height);
+
+                SpriteImage = new CroppedBitmap(originBitmap, croptImage);
             }
             catch (Exception ex)
             {

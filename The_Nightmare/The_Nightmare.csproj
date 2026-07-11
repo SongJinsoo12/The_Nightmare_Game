@@ -55,7 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Animation.cs" />
+    <Compile Include="AnimationControl.cs" />
     <Compile Include="Component\AIComponent.cs" />
+    <Compile Include="Component\AnimatorComponent.cs" />
     <Compile Include="Component\MonsterAIComponent.cs" />
     <Compile Include="Component\ColliderComponent.cs" />
     <Compile Include="Component\Component.cs" />
@@ -110,6 +113,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="skeleton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Attack1.png" />
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Attack2.png" />
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Die.png" />
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Hurt.png" />
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Idle.png" />
+    <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Walk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

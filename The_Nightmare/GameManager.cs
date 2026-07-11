@@ -31,7 +31,7 @@ namespace The_Nightmare
             Player.Collider = new ColliderComponent();
 
             //몬스터
-            ObjectFactory.Initialize(Player, "Skeleton", new SkeletonCreator(Player));
+            ObjectFactory.Initialize(Player, "Skeleton", new SkeletonCreator(Player, MyCanvas));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
             GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 20, 20);
 
@@ -42,24 +42,19 @@ namespace The_Nightmare
         {
             // 입력 처리
         }
-        public void Update()
+        public void Update(double deltaTime)
         {
             // 게임 로직 업데이트
-
+            foreach (var enemy in Monsters)
+            {
+                enemy.AI?.Update(enemy);
+                enemy.Animator?.Update(enemy, deltaTime);
+                enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
+            }
         }
         public void Render()
         {
-            foreach (var enemy in Monsters)
-            {
-                Image image = new Image();
-                image.Source = enemy.Render.SpriteImage;
-                image.Width = enemy.Render.SpriteImage.Width;
-                image.Height = enemy.Render.SpriteImage.Height;
-
-                Canvas.SetLeft(image, enemy.X);
-                Canvas.SetTop(image, enemy.Y);
-                MyCanvas.Children.Add(image);
-            }
+            
         }
     }
 }

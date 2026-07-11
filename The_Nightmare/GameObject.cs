@@ -22,5 +22,6 @@ namespace The_Nightmare
             X = _x;
             Y = _y;
         }
+        public AnimatorComponent Animator { get; set; }
     }
 }
