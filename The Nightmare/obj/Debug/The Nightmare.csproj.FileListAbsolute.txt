@@ -28,3 +28,22 @@ C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Ni
 C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.exe
 C:\Users\User\Documents\GitHub\The_Nightmare_Game\The Nightmare\obj\Debug\The Nightmare.pdb
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Buffers.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.IO.Pipelines.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Memory.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Numerics.Vectors.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Encodings.Web.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Json.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Buffers.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.IO.Pipelines.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Memory.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Numerics.Vectors.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Encodings.Web.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Json.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nigh.8A35E8A9.Up2Date
