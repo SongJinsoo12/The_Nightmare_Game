@@ -55,7 +55,7 @@ namespace The_Nightmare
             else if (dy < 0) FacingDirection = Direction.Up;
 
             ChangeState(PlayerState.Moving);
-            Move.Move(this, dx, dy, map);
+            Move.MoveBy(this, dx, dy, map);
 
             ChangeState(PlayerState.Idle);
         }
@@ -67,7 +67,7 @@ namespace The_Nightmare
             // 애니메이션이 끝나기 전에 상태가 바뀌는 것을 방지
             if (CurrentState == PlayerState.Attacking && newState == PlayerState.Idle)
             {
-
+                return;
             }
             CurrentState = newState;
         }
