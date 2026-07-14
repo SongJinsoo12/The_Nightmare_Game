@@ -52,9 +52,5 @@ namespace The_Nightmare
                 enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
             }
         }
-        public void Render()
-        {
-            
-        }
     }
 }

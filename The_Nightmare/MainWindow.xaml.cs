@@ -52,7 +52,6 @@ namespace The_Nightmare
             // 4. 게임 로직 및 렌더링 연속 업데이트
             _gameManager.ProcessInput();
             _gameManager.Update(deltaTime);
-            _gameManager.Render();
         }
     }
 }
