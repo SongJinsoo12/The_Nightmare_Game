@@ -8,9 +8,6 @@ namespace The_Nightmare.Component
 {
     public class MonsterAIComponent : AIComponent
     {
-        private GameObject _target;
-        private MonsterState _curState;
-
         public double DetectRange { get; private set; } = 10.0;
         public double AttackRange { get; private set; } = 2.0;
 
@@ -18,22 +15,22 @@ namespace The_Nightmare.Component
 
         public void ChangeState(MonsterState newState)
         {
-            if (_curState == newState) return;
-            _curState = newState;
-            OnStateChange?.Invoke(_curState);
+            if (CurState == newState) return;
+            CurState = newState;
+            OnStateChange?.Invoke(CurState);
         }
 
         public MonsterAIComponent(GameObject target)
         {
             _target = target;
-            _curState = MonsterState.IDLE;
+            CurState = MonsterState.DIE;
         }
 
         public override void Update(GameObject owner)
         {
             if (_target == null || owner.Move == null) return;
 
-            switch (_curState)
+            switch (CurState)
             {
                 case MonsterState.IDLE:
                     UpdateIdle(owner);
@@ -47,13 +44,14 @@ namespace The_Nightmare.Component
                 case MonsterState.ATTACK:
                     UpdateAttack(owner);
                     break;
+                case MonsterState.DIE:
+                    UpdateDie(owner);
+                    break;
             }
         }
 
         private void UpdateIdle(GameObject owner)
         {
-            //제자리 애니메이션 추후 추가
-
             if (GetDistance(owner, _target) <= DetectRange)
             {
                 ChangeState(MonsterState.CHASE);
@@ -62,7 +60,8 @@ namespace The_Nightmare.Component
 
         private void UpdatePatrol(GameObject owner)
         {
-            //순찰 애니메이션 및 로직 추후 추가
+            //로직 추후 추가
+            
         }
 
         private void UpdateChase(GameObject owner)
@@ -93,12 +92,17 @@ namespace The_Nightmare.Component
 
         private void UpdateAttack(GameObject owner)
         {
-            //공격 애니메이션 및 데미지 판정 로직
+            //데미지 판정 로직
 
             if (GetDistance(owner, _target) > AttackRange)
             {
                 ChangeState(MonsterState.CHASE);
             }
+        }
+
+        private void UpdateDie(GameObject owner)
+        {
+            //죽음 로직
         }
 
         private double GetDistance(GameObject a, GameObject b)
