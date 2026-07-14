@@ -23,7 +23,7 @@ namespace The_Nightmare.Component
         public MonsterAIComponent(GameObject target)
         {
             _target = target;
-            CurState = MonsterState.DIE;
+            CurState = MonsterState.IDLE;
         }
 
         public override void Update(GameObject owner)
@@ -34,6 +34,7 @@ namespace The_Nightmare.Component
             {
                 case MonsterState.IDLE:
                     UpdateIdle(owner);
+
                     break;
                 case MonsterState.PATROL:
                     UpdatePatrol(owner);

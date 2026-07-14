@@ -33,7 +33,7 @@ namespace The_Nightmare
             //몬스터
             ObjectFactory.Initialize(Player, "Skeleton", new SkeletonCreator(Player, MyCanvas));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
-            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 20, 20);
+            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
 
             Monsters.Add(skeleton1);
             Monsters.Add(skeleton2);

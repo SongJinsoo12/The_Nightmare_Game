@@ -36,11 +36,15 @@ namespace The_Nightmare
                 "Skeleton_01_White_Walk.png", width, height, 10, 0.08, true);
             skeleton.Animator.AddAnimation(MonsterState.PATROL, walkAnim);
 
+            Animation chaseAnim = new Animation(filePath +
+                "Skeleton_01_White_Walk.png", width, height, 10, 0.03, true);
+            skeleton.Animator.AddAnimation(MonsterState.CHASE, chaseAnim);
+
             Animation dieAnim = new Animation(filePath +
                 "Skeleton_01_White_Die.png", width, height, 13, 0.08, false);
             skeleton.Animator.AddAnimation(MonsterState.DIE, dieAnim);
 
-            skeleton.Animator.Play(skeleton.AI.CurState);
+            //skeleton.Animator.Play(skeleton.AI.CurState);
 
             return skeleton;
         }
