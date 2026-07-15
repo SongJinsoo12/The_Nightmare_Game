@@ -47,3 +47,4 @@ D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Encodings.Web.xm
 D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Text.Json.xml
 D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\vsc_guitar\The Nightmare\The Nightmare\obj\Debug\The Nigh.8A35E8A9.Up2Date
+D:\vsc_guitar\The Nightmare\The Nightmare\bin\Debug\Map1.json
