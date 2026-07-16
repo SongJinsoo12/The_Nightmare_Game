@@ -6,23 +6,27 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    public enum ItemType
+    public class Sword : IItem
     {
-        None,
-        Sword,
-        Shield,
-        Potion
-    }
-    public class Item
-    {
-        public ItemType Type { get; set; } = ItemType.None;
-
-        public string Name { get; set; }
-        public string Description { get; set; }
-
-        public Item()
+        public string Name => "낡은 단검";
+        public string Description => "누군가의 추억이 담긴 물건이다.";
+        public void Use(Player player)
         {
+            // Increase player's attack power when the sword is used
+            player.EquipWeapon(10);
+            Console.WriteLine($"{player}가 아이템 {Name}을 장착했습니다.");
+        }
+    }
 
+    public class Potion : IItem
+    {
+        public string Name => "낡은 단검";
+        public string Description => "누군가의 추억이 담긴 물건이다.";
+        public void Use(Player player)
+        {
+            // Increase player's attack power when the sword is used
+            player.EquipWeapon(10);
+            Console.WriteLine($"{player}가 아이템 {Name}을 장착했습니다.");
         }
     }
 }

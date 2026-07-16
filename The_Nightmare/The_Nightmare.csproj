@@ -62,6 +62,7 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="ICreator.cs" />
+    <Compile Include="IItem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="MonsterCreators.cs" />
     <Compile Include="MoveComponent.cs" />
