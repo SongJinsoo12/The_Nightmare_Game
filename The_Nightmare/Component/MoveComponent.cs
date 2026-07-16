@@ -8,7 +8,7 @@ namespace The_Nightmare
 {
     public class MoveComponent
     {
-        public void Move(GameObject owner, int deltaX, int deltaY, int[,] map)
+        public void MoveBy(GameObject owner, int deltaX, int deltaY, int[,] map)
         {
             int nextX = owner.X + deltaX;
             int nextY = owner.Y + deltaY;

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    internal class Test
+    internal interface IItem
     {
+        string Name { get; }
+        string Description { get; }
+        void Use(Player player);
     }
 }

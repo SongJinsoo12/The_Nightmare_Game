@@ -23,6 +23,10 @@ namespace The_Nightmare
     }
     public class Player : GameObject
     {
+        // 추가 스탯
+        public double m_stamina { get; private set; } = 100;
+        public int m_mana { get; private set; } = 100;
+
         public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
         public Direction FacingDirection { get; private set; } = Direction.Down;
 
@@ -30,10 +34,12 @@ namespace The_Nightmare
         public int WeaponAtk { get; private set; } = 0;
         public int TotalAtk => (Stats?.Atk ?? 0) + WeaponAtk;
 
-        public Player(int _x, int _y) : base(_x, _y)
+        public Player(int _x, int _y, double _stamina, int _mana) : base(_x, _y)
         {
             this.Move = new MoveComponent();
-            this.Stats = new StatsComponent(100, 10, 5, 3);
+            this.Stats = new StatsComponent(100, 10, 5, 1.0);
+            m_stamina = _stamina;
+            m_mana = _mana;
         }
 
         public void TryMove(int dx, int dy, int[,] map)
@@ -49,9 +55,23 @@ namespace The_Nightmare
             else if (dy < 0) FacingDirection = Direction.Up;
 
             ChangeState(PlayerState.Moving);
-            Move.Move(this, dx, dy, map);
+            Move.MoveBy(this, dx, dy, map);
 
             ChangeState(PlayerState.Idle);
+        }
+
+        public void Update(double deltaTime)
+        {
+            // 스테미나 회복
+            m_stamina += 5 * deltaTime;
+            if (m_stamina > 100) m_stamina = 100;
+
+            // 상태 업데이트
+            if (CurrentState == PlayerState.Hit && Stats.Health <= 0)
+            {
+                ChangeState(PlayerState.Dead);
+                Console.WriteLine("플레이어가 사망했습니다.");
+            }
         }
 
         public void ChangeState(PlayerState newState)
@@ -61,7 +81,7 @@ namespace The_Nightmare
             // 애니메이션이 끝나기 전에 상태가 바뀌는 것을 방지
             if (CurrentState == PlayerState.Attacking && newState == PlayerState.Idle)
             {
-
+                return;
             }
             CurrentState = newState;
         }
@@ -99,6 +119,16 @@ namespace The_Nightmare
             ChangeState(PlayerState.Idle);
         }
 
+        public void OnHit(int damage)
+        {
+            if (CurrentState == PlayerState.Dead) return;
+            
+            if(CurrentState != PlayerState.Hit && CurrentState != PlayerState.Attacking) 
+                ChangeState(PlayerState.Hit);
+            Stats.TakeDamage(damage);
+        }
+
+        // 무기 장착
         public void EquipWeapon(int weaponAtk)
         {
             WeaponAtk = weaponAtk;

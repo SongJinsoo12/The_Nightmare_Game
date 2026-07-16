@@ -11,9 +11,9 @@ namespace The_Nightmare
         public int Health { get; private set; }
         public int Atk { get; private set; }
         public int Def { get; private set; }
-        public int Speed { get; private set;  }
-
-        public StatsComponent(int health, int atk, int def, int speed)
+        public double Speed { get; private set; }
+            
+        public StatsComponent(int health, int atk, int def, double speed)
         {
             Health = health;
             Atk = atk;
