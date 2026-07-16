@@ -60,6 +60,20 @@ namespace The_Nightmare
             ChangeState(PlayerState.Idle);
         }
 
+        public void Update(double deltaTime)
+        {
+            // 스테미나 회복
+            m_stamina += 5 * deltaTime;
+            if (m_stamina > 100) m_stamina = 100;
+
+            // 상태 업데이트
+            if (CurrentState == PlayerState.Hit && Stats.Health <= 0)
+            {
+                ChangeState(PlayerState.Dead);
+                Console.WriteLine("플레이어가 사망했습니다.");
+            }
+        }
+
         public void ChangeState(PlayerState newState)
         {
             if (CurrentState == PlayerState.Dead) return;

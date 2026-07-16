@@ -45,6 +45,7 @@ namespace The_Nightmare
         {
             DeltaTime = deltaTime;
             // 게임 로직 업데이트
+            player.Update(deltaTime);
         }
         public void Render()
         {
