@@ -8,6 +8,6 @@
         Title="MainWindow" Height="450" Width="800"
         KeyDown="Window_KeyDown">
     <Grid>
-        
+        <Canvas Name="MyCanvas" Width="800" Height="600"></Canvas>
     </Grid>
 </Window>

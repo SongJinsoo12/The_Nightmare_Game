@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -24,6 +25,19 @@ namespace The_Nightmare
             foreach (var imagePath in imagePaths)
             {
                 Frames.Add(new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute)));
+            }
+        }
+
+        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true)
+        {
+            FrameDuration = frameDuration;
+            isLoop = loop;
+
+            BitmapImage originBitmap = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+            for (int i = 1; i <= imageNumber; i++)
+            {
+                Int32Rect croptImage = new Int32Rect(width * (i - 1), 0, width, height);
+                Frames.Add(new CroppedBitmap(originBitmap, croptImage));
             }
         }
     }

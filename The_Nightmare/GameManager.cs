@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace The_Nightmare
 {
@@ -11,20 +12,34 @@ namespace The_Nightmare
     {
         // deltaTime은 이것을 사용!
         public static double DeltaTime { get; private set; }
+
+        public GameObject Player { get; private set; }
+        public List<GameObject> Monsters { get; private set; } = new List<GameObject>();
+        public Canvas MyCanvas { get; private set; }
         public int[,] Map { get; private set; }
         // 플레이어 & 몬스터 갖고오기
-        public Player player = new Player(1, 1, 100, 100);
 
-        public GameManager()
+        public GameManager(Canvas canvas)
         {
+            MyCanvas = canvas;
+
             Map = new int[20,20];
             // 초기화
 
             // 예시
-            player.Move = new MoveComponent();
-            player.Stats = new StatsComponent(100, 10, 5, 1.0);
-            player.Render = new SpriteRenderComponent("Assets/Player.png");
-            player.Collider = new ColliderComponent();
+            Player = new GameObject(1, 1);
+            Player.Move = new MoveComponent();
+            Player.Stats = new StatsComponent(100, 10, 5, 3);
+            Player.Render = new SpriteRenderComponent("Assets/Player.png");
+            Player.Collider = new ColliderComponent();
+
+            //몬스터
+            ObjectFactory.Initialize(Player, "Skeleton", new SkeletonCreator(Player, MyCanvas));
+            GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
+            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
+
+            Monsters.Add(skeleton1);
+            Monsters.Add(skeleton2);
         }
         // 연속적인 입력 처리 - 예시: 이동
         public void ProcessContinuousInput()
@@ -45,11 +60,12 @@ namespace The_Nightmare
         {
             DeltaTime = deltaTime;
             // 게임 로직 업데이트
-            player.Update(deltaTime);
-        }
-        public void Render()
-        {
-            // 화면 렌더링
+            foreach (var enemy in Monsters)
+            {
+                enemy.AI?.Update(enemy);
+                enemy.Animator?.Update(enemy, deltaTime);
+                enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
+            }
         }
     }
 }

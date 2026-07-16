@@ -74,7 +74,6 @@ namespace The_Nightmare
                 _gameManager.Update(TargetFrameTime);
                 _accumlator -= TargetFrameTime;
             }
-            _gameManager.Render();
         }
     }
 }
