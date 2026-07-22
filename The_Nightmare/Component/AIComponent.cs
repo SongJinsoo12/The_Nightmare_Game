@@ -6,16 +6,6 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    public enum MonsterState
-    {
-        // 대기, 순찰, 추적, 공격, 죽음
-        IDLE,
-        PATROL,
-        CHASE,
-        ATTACK,
-        DIE,
-    }
-
     public abstract class AIComponent
     {
         protected GameObject _target;

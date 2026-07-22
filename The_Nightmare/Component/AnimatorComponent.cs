@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace The_Nightmare
 {
-    public class AnimatorComponent
+    public class AnimatorComponent<T> where T : Enum
     {
         public AnimationControl Controller { get; private set; }
 
-        private Dictionary<MonsterState, Animation> _animations;
+        private Dictionary<T, Animation> _animations;
 
         public AnimatorComponent()
         {
             Controller = new AnimationControl();
-            _animations = new Dictionary<MonsterState, Animation>();
+            _animations = new Dictionary<T, Animation>();
         }
 
-        public void AddAnimation(MonsterState state, Animation anima)
+        public void AddAnimation(T state, Animation anima)
         {
             _animations[state] = anima;
         }
 
-        public void Play(MonsterState state)
+        public void Play(T state)
         {
             if (_animations.TryGetValue(state, out Animation anima))
             {

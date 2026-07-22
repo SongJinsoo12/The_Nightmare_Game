@@ -19,9 +19,10 @@ namespace The_Nightmare
             _object.Collider = new ColliderComponent();
             _object.Render = new SpriteRenderComponent();
             _canvasRef.Children.Add(_object.Render.SpriteControl);
-            _object.Animator = new AnimatorComponent();
+            _object.Animator = new AnimatorComponent<AnimState>();
             MonsterAIComponent monsterAI = new MonsterAIComponent(_playerRef);
-            monsterAI.OnStateChange += (newState) => _object.Animator.Play(newState);
+            //임시
+            //monsterAI.OnStateChange += (newState) => _object.Animator.Play(newState);
             _object.AI = monsterAI;
         }
     }

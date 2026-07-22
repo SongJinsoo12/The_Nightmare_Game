@@ -29,17 +29,19 @@ namespace The_Nightmare.Creators
 
             Animation idleAnim = new Animation(filePath +
                 "Skeleton_01_White_Idle.png", width, height, 8, 0.1, true);
-            skeleton.Animator.AddAnimation(MonsterState.IDLE, idleAnim);
+            skeleton.Animator.AddAnimation(AnimState.Idle_Right, idleAnim);
 
             Animation walkAnim = new Animation(filePath +
                 "Skeleton_01_White_Walk.png", width, height, 10, 0.08, true);
-            skeleton.Animator.AddAnimation(MonsterState.PATROL, walkAnim);
+            skeleton.Animator.AddAnimation(AnimState.Moving_Right, walkAnim);
 
             Animation dieAnim = new Animation(filePath +
                 "Skeleton_01_White_Die.png", width, height, 13, 0.08, true);
-            skeleton.Animator.AddAnimation(MonsterState.DIE, dieAnim);
+            skeleton.Animator.AddAnimation(AnimState.Dead, dieAnim);
 
-            skeleton.Animator.Play(skeleton.AI.CurState);
+
+            //임시
+            skeleton.Animator.Play(AnimState.Idle_Right);
 
             return skeleton;
         }
