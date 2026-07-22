@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Nightmare.Component
+namespace The_Nightmare
 {
     public class MonsterAIComponent : AIComponent
     {
@@ -23,7 +23,7 @@ namespace The_Nightmare.Component
         public MonsterAIComponent(GameObject target)
         {
             _target = target;
-            CurState = MonsterState.IDLE;
+            CurState = MonsterState.DIE;
         }
 
         public override void Update(GameObject owner)
@@ -34,7 +34,6 @@ namespace The_Nightmare.Component
             {
                 case MonsterState.IDLE:
                     UpdateIdle(owner);
-
                     break;
                 case MonsterState.PATROL:
                     UpdatePatrol(owner);
@@ -81,14 +80,14 @@ namespace The_Nightmare.Component
             }
 
             int mx, my;
-            if (owner.X < _target.X) mx = owner.Stats.Speed;
-            else mx = -(owner.Stats.Speed);
-            if (owner.Y < _target.Y) my = owner.Stats.Speed;
-            else my = -(owner.Stats.Speed);
+            if (owner.X < _target.X) mx = (int)owner.Stats.Speed;
+            else mx = (int)-(owner.Stats.Speed);
+            if (owner.Y < _target.Y) my = (int)owner.Stats.Speed;
+            else my = (int)-(owner.Stats.Speed);
 
             int[,] tempMap = { { 0, 0, 0, 0 }, }; //임시 맵
 
-            owner.Move.Move(owner, mx, my, tempMap);
+            owner.Move.MoveBy(owner, mx, my, tempMap);
         }
 
         private void UpdateAttack(GameObject owner)

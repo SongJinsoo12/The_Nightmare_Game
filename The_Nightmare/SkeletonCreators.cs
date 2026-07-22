@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using The_Nightmare.Component;
 
-namespace The_Nightmare
+namespace The_Nightmare.Creators
 {
-    public class SkeletonCreator : ICreator
+    public partial class SkeletonCreator : ICreator
     {
         private const string filePath = "pack://application:,,/assets/Skeleton_With_VFX/";
         private const int width = 96;
@@ -36,17 +35,17 @@ namespace The_Nightmare
                 "Skeleton_01_White_Walk.png", width, height, 10, 0.08, true);
             skeleton.Animator.AddAnimation(MonsterState.PATROL, walkAnim);
 
-            Animation chaseAnim = new Animation(filePath +
-                "Skeleton_01_White_Walk.png", width, height, 10, 0.03, true);
-            skeleton.Animator.AddAnimation(MonsterState.CHASE, chaseAnim);
-
             Animation dieAnim = new Animation(filePath +
-                "Skeleton_01_White_Die.png", width, height, 13, 0.08, false);
+                "Skeleton_01_White_Die.png", width, height, 13, 0.08, true);
             skeleton.Animator.AddAnimation(MonsterState.DIE, dieAnim);
 
-            //skeleton.Animator.Play(skeleton.AI.CurState);
+            skeleton.Animator.Play(skeleton.AI.CurState);
 
             return skeleton;
         }
+    }
+
+    public partial class SkeletonCreator
+    {
     }
 }

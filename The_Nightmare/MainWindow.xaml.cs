@@ -32,7 +32,7 @@ namespace The_Nightmare
         public MainWindow()
         {
             InitializeComponent();
-            _gameManager = new GameManager();
+            _gameManager = new GameManager(MyCanvas);
 
             this.Loaded += Window_Loaded;
         }

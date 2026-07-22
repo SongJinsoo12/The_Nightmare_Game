@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using The_Nightmare.Component;
 
 namespace The_Nightmare
 {

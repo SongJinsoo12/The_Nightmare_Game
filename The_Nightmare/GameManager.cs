@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Controls;
+using The_Nightmare.Creators;
 
 namespace The_Nightmare
 {
@@ -45,10 +46,10 @@ namespace The_Nightmare
         public void ProcessContinuousInput()
         {
             // 입력 처리
-            if(Keyboard.IsKeyDown(Key.W)) player.Move.MoveBy(player, 0, 1, Map);
-            if(Keyboard.IsKeyDown(Key.S)) player.Move.MoveBy(player, 0, -1, Map);
-            if(Keyboard.IsKeyDown(Key.A)) player.Move.MoveBy(player, -1, 0, Map);
-            if(Keyboard.IsKeyDown(Key.D)) player.Move.MoveBy(player, 1, 0, Map);
+            if(Keyboard.IsKeyDown(Key.W)) Player.Move.MoveBy(Player, 0, 1, Map);
+            if(Keyboard.IsKeyDown(Key.S)) Player.Move.MoveBy(Player, 0, -1, Map);
+            if(Keyboard.IsKeyDown(Key.A)) Player.Move.MoveBy(Player, -1, 0, Map);
+            if(Keyboard.IsKeyDown(Key.D)) Player.Move.MoveBy(Player, 1, 0, Map);
         }
 
         // 단일 입력 처리 - 예시: 공격

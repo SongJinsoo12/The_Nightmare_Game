@@ -57,17 +57,20 @@
     </ApplicationDefinition>
     <Compile Include="Animation.cs" />
     <Compile Include="AnimationControl.cs" />
+    <Compile Include="Component\AIComponent.cs" />
+    <Compile Include="Component\AnimatorComponent.cs" />
     <Compile Include="Component\ColliderComponent.cs" />
     <Compile Include="Component\Component.cs" />
+    <Compile Include="Component\MonsterAIComponent.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="ICreator.cs" />
-    <Compile Include="MonsterCreators.cs" />
     <Compile Include="Component\MoveComponent.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Component\SpriteRenderComponent.cs" />
     <Compile Include="Component\StatsComponent.cs" />
+    <Compile Include="SkeletonCreators.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

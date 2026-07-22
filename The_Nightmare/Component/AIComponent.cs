@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Nightmare.Component
+namespace The_Nightmare
 {
     public enum MonsterState
     {
