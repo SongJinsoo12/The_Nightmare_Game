@@ -55,8 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-	  <Compile Include="Animation.cs" />
-	  <Compile Include="AnimationControl.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="AnimationControl.cs" />
     <Compile Include="Component\ColliderComponent.cs" />
     <Compile Include="Component\Component.cs" />
     <Compile Include="GameManager.cs" />
@@ -68,7 +68,6 @@
     <Compile Include="Player.cs" />
     <Compile Include="Component\SpriteRenderComponent.cs" />
     <Compile Include="Component\StatsComponent.cs" />
-    <Compile Include="Test.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
