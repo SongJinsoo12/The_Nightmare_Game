@@ -45,33 +45,10 @@ namespace The_Nightmare
             UpdateAnimation();
         }
 
-        public void UpdateMovement(double dx, double dy, int[,] map)
+        public void TryMove(double dx, double dy, int[,] map)
         {
-            // 행동 불가 상태면 리턴
-            if (CurrentState == PlayerState.Attacking || CurrentState == PlayerState.Hit || CurrentState == PlayerState.Dead)
-                return;
+            if(CurrentState == PlayerState.Dead) return;
 
-            // 입력이 없으면 Idle 상태로 전환
-            if (dx == 0 && dy == 0)
-            {
-                ChangeState(PlayerState.Idle);
-                return;
-            }
-
-            // 입력값에 따라 바라보는 방향 결정 (대각선 입력 시 X축 우선순위 등 조정 가능)
-            if (Math.Abs(dx) > Math.Abs(dy))
-                FacingDirection = dx > 0 ? Direction.Right : Direction.Left;
-            else
-                FacingDirection = dy > 0 ? Direction.Down : Direction.Up;
-
-            ChangeState(PlayerState.Moving);
-
-            // 실제 좌표 이동 (MoveComponent가 double을 지원하도록 수정 필요)
-            Move.MoveBy(this, dx, dy, map);
-        }
-
-        public void TryMove(int dx, int dy, int[,] map)
-        {
             if (CurrentState == PlayerState.Attacking ||
                 CurrentState == PlayerState.Hit)
                 return;

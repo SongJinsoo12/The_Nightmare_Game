@@ -60,7 +60,7 @@ namespace The_Nightmare
 
             if (CurPlayer is Player p)
             {
-                p.UpdateMovement(dx, dy, Map);
+                p.TryMove(dx, dy, Map);
             }
         }
 
