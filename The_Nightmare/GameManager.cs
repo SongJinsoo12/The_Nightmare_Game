@@ -68,6 +68,13 @@ namespace The_Nightmare
         public void ProcessSingleInput(Key key)
         {
             // 입력 처리
+            if(key == Key.Space)
+            {
+                if (CurPlayer is Player p)
+                {
+                    p.AttackEnemy(Monsters);
+                }
+            }
         }
         public void Update(double deltaTime)
         {

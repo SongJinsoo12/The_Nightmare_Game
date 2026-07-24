@@ -118,13 +118,8 @@ namespace The_Nightmare
             this.Animator.AddAnimation(AnimState.Idle_Left, idleLeft);
         }
 
-        public void Attack(List<GameObject> enemies)
+        public void AttackEnemy(List<GameObject> enemies)
         {
-            if (CurrentState == PlayerState.Attacking ||
-                CurrentState == PlayerState.Hit)
-                return;
-            ChangeState(PlayerState.Attacking);
-
             // 범위 계산
             double targetX = X;
             double targetY = Y;
@@ -139,7 +134,7 @@ namespace The_Nightmare
 
             foreach (var enemy in enemies)
             {
-                if (enemy.X == targetX && enemy.Y == targetY)
+                if (Collider.IsColliding(this, enemy))
                 {
                     if (enemy.Stats != null)
                     {
@@ -148,7 +143,6 @@ namespace The_Nightmare
                     }
                 }
             }
-            ChangeState(PlayerState.Idle);
         }
 
         public void OnHit(int damage)
