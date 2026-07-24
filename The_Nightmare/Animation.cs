@@ -28,7 +28,8 @@ namespace The_Nightmare
             }
         }
 
-        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true)
+        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true,
+                         bool flipHorizontal = false, bool flipVertical = false, double rotationAngle = 0)
         {
             FrameDuration = frameDuration;
             isLoop = loop;
@@ -37,8 +38,34 @@ namespace The_Nightmare
             for (int i = 1; i <= imageNumber; i++)
             {
                 Int32Rect croptImage = new Int32Rect(width * (i - 1), 0, width, height);
-                Frames.Add(new CroppedBitmap(originBitmap, croptImage));
+                CroppedBitmap croppedBitmap = new CroppedBitmap(originBitmap, croptImage);
+                Frames.Add(ApplyTransform(croppedBitmap, flipHorizontal, flipVertical, rotationAngle));
             }
+        }
+
+        private ImageSource ApplyTransform(BitmapSource source, bool flipHorizontal, bool flipVertical, double rotationAngle)
+        {
+            if (!flipHorizontal && !flipVertical && rotationAngle == 0)
+                return source;
+
+            TransformGroup transformGroup = new TransformGroup();
+
+            // 1. 좌우/상하 반전 (ScaleTransform 적용)
+            if (flipHorizontal || flipVertical)
+            {
+                transformGroup.Children.Add(new ScaleTransform(
+                    flipHorizontal ? -1 : 1,
+                    flipVertical ? -1 : 1));
+            }
+
+            // 2. 회전 (RotateTransform 적용)
+            if (rotationAngle != 0)
+            {
+                transformGroup.Children.Add(new RotateTransform(rotationAngle));
+            }
+
+            // TransformedBitmap으로 원본 소스에 변환 그룹 적용
+            return new TransformedBitmap(source, transformGroup);
         }
     }
 }

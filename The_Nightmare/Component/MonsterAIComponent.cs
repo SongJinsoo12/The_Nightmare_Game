@@ -107,8 +107,8 @@ namespace The_Nightmare
 
         private double GetDistance(GameObject a, GameObject b)
         {
-            int dx = a.X - b.X;
-            int dy = a.Y - b.Y;
+            double dx = a.X - b.X;
+            double dy = a.Y - b.Y;
             return Math.Sqrt(dx * dx + dy * dy);
         }
     }

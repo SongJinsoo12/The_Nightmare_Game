@@ -62,6 +62,7 @@
     <Compile Include="Component\ColliderComponent.cs" />
     <Compile Include="Component\Component.cs" />
     <Compile Include="Component\MonsterAIComponent.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="ICreator.cs" />
@@ -111,15 +112,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="skeleton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Attack1.png" />
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Attack2.png" />
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Die.png" />
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Hurt.png" />
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Idle.png" />
     <Resource Include="assets\Skeleton_With_VFX\Skeleton_01_White_Walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Soldier\Soldier.png" />
+    <Resource Include="assets\Soldier\Soldier_Attack01.png" />
+    <Resource Include="assets\Soldier\Soldier_Attack02.png" />
+    <Resource Include="assets\Soldier\Soldier_Attack03.png" />
+    <Resource Include="assets\Soldier\Soldier_Death.png" />
+    <Resource Include="assets\Soldier\Soldier_Hurt.png" />
+    <Resource Include="assets\Soldier\Soldier_Idle.png" />
+    <Resource Include="assets\Soldier\Soldier_Walk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
