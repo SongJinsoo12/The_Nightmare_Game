@@ -121,8 +121,8 @@ namespace The_Nightmare
         public void AttackEnemy(List<GameObject> enemies)
         {
             // 범위 계산
-            double targetX = X;
-            double targetY = Y;
+            int targetX = (int)X;
+            int targetY = (int)Y;
 
             switch (FacingDirection)
             {
@@ -134,9 +134,9 @@ namespace The_Nightmare
 
             foreach (var enemy in enemies)
             {
-                if (Collider.IsColliding(this, enemy))
+                if (enemy.Collider != null && enemy.Collider.IsActive)
                 {
-                    if (enemy.Stats != null)
+                    if (enemy.Collider.Intersects((int)enemy.X, (int)enemy.Y, targetX, targetY))
                     {
                         enemy.Stats.TakeDamage(TotalAtk);
                         Console.WriteLine($"몬스터에게 {TotalAtk}의 데미지를 입혔습니다.");
