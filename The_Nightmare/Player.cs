@@ -14,7 +14,7 @@ namespace The_Nightmare
         public double m_stamina { get; private set; } = 100;
         public int m_mana { get; private set; } = 100;
 
-        public PlayerState CurrentState { get; private set; } = PlayerState.Moving;
+        public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
         public Direction FacingDirection { get; private set; } = Direction.Right;
 
         // 무기 공격력
@@ -30,7 +30,7 @@ namespace The_Nightmare
             this.Y = _y;
 
             this.Move = new MoveComponent();
-            this.Stats = new StatsComponent(100, 10, 5, 150.0);
+            this.Stats = new StatsComponent(100, 10, 5, 50.0);
             m_stamina = _stamina;
             m_mana = _mana;
             
@@ -47,6 +47,11 @@ namespace The_Nightmare
 
         public void TryMove(double dx, double dy, int[,] map)
         {
+            if (dx == 0 && dy == 0)
+            {
+                ChangeState(PlayerState.Idle);
+                return;
+            }
             if(CurrentState == PlayerState.Dead) return;
 
             if (CurrentState == PlayerState.Attacking ||
@@ -61,8 +66,7 @@ namespace The_Nightmare
 
             ChangeState(PlayerState.Moving);
             Move.MoveBy(this, dx, dy, map);
-
-            ChangeState(PlayerState.Idle);
+            UpdateAnimation();
         }
 
         public void Update(double deltaTime)
@@ -77,7 +81,6 @@ namespace The_Nightmare
                 ChangeState(PlayerState.Dead);
                 Console.WriteLine("플레이어가 사망했습니다.");
             }
-            Animator?.Update(this, deltaTime);
         }
 
         public void ChangeState(PlayerState newState)

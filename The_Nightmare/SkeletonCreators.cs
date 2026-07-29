@@ -25,7 +25,7 @@ namespace The_Nightmare.Creators
 
             // 컴포넌트 조립
             CreateBaseComponent(skeleton);
-            skeleton.Stats = new StatsComponent(50, 10, 5, 2);
+            skeleton.Stats = new StatsComponent(50, 10, 5, 50.0);
 
             //R Anim
             Animation idleRight = new Animation(filePath +

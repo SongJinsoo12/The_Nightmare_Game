@@ -10,6 +10,7 @@ namespace The_Nightmare
     {
         public double DetectRange { get; private set; } = 200.0;
         public double AttackRange { get; private set; } = 2.0;
+        public static double DeltaTime {  get; private set; }
 
         public event Action<AnimState> OnStateChange;
 
@@ -28,8 +29,9 @@ namespace The_Nightmare
             CurState = MonsterState.CHASE;
         }
 
-        public override void Update(GameObject owner)
+        public override void Update(GameObject owner, double deltaTime)
         {
+            DeltaTime = deltaTime; 
             if (_target == null || owner.Move == null) return;
 
             switch (CurState)
@@ -84,27 +86,29 @@ namespace The_Nightmare
                 else ChangeAnimState(AnimState.Idle_Left);
                 return;
             }
-
-            int mx, my;
+            double speed = owner.Stats.Speed * DeltaTime;
+            double dx = 0;
+            double dy = 0;
             if (owner.X < _target.X)
             {
                 Facing = true;
-                mx = (int)owner.Stats.Speed;
+                //mx = (int)owner.Stats.Speed;
+                dx += speed;
                 ChangeAnimState(AnimState.Moving_Right);
             }
             else
             {
                 Facing = false;
-                mx = (int)-(owner.Stats.Speed);
+                dx -= speed;
                 ChangeAnimState(AnimState.Moving_Left);
             }
-            if (owner.Y < _target.Y) my = (int)owner.Stats.Speed;
-            else my = (int)-(owner.Stats.Speed);
+            if (owner.Y < _target.Y) dy += speed;
+            else dy -= speed;
 
             int[,] tempMap = { { 0, 0, 0, 0 }, }; //임시 맵
 
 
-            owner.Move.MoveBy(owner, mx, my, tempMap);
+            owner.Move.MoveBy(owner, dx, dy, tempMap);
         }
 
         private void UpdateAttack(GameObject owner)

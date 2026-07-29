@@ -73,13 +73,14 @@ namespace The_Nightmare
             if (CurPlayer != null)
             {
                 CurPlayer.Update(deltaTime);
+                CurPlayer.Animator?.Update(CurPlayer, deltaTime);
                 CurPlayer.Render?.Update(CurPlayer);
             }
 
             // 게임 로직 업데이트
             foreach (var enemy in Monsters)
             {
-                enemy.AI?.Update(enemy);
+                enemy.AI?.Update(enemy, deltaTime);
                 enemy.Animator?.Update(enemy, deltaTime);
                 enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
             }

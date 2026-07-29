@@ -11,6 +11,6 @@ namespace The_Nightmare
         protected GameObject _target;
         public MonsterState CurState { get; protected set; }
         public AnimState CurAnimState { get; protected set; }
-        public abstract void Update(GameObject owner);
+        public abstract void Update(GameObject owner, double deltaTime);
     }
 }
