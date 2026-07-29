@@ -14,12 +14,13 @@ namespace The_Nightmare
     {
         public ImageSource SpriteImage { get; private set; }
         public Image SpriteControl { get; private set; }
-
+        public int width { get; private set; } = 0;
+        public int height { get; private set; } = 0;
         public SpriteRenderComponent()
         {
             SpriteControl = new Image();
         }
-
+        public const int TileSize = 32; // 타일 크기 상수
         public void Update(GameObject owner)
         {
             Canvas.SetLeft(SpriteControl, owner.X);

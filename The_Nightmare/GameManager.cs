@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Controls;
 using The_Nightmare.Creators;
+using System.Windows.Shapes;
+using System.Windows.Media;
 
 namespace The_Nightmare
 {
@@ -15,6 +17,7 @@ namespace The_Nightmare
         public static double DeltaTime { get; private set; }
 
         public Player CurPlayer { get; private set; }
+        private HitboxVisualizer _hitboxVisualizer;
         public List<GameObject> Monsters { get; private set; } = new List<GameObject>();
         public Canvas MyCanvas { get; private set; }
         public int[,] Map { get; private set; }
@@ -23,7 +26,7 @@ namespace The_Nightmare
         public GameManager(Canvas canvas)
         {
             MyCanvas = canvas;
-
+            _hitboxVisualizer = new HitboxVisualizer(canvas);
             Map = new int[20,20];
             // 초기화
 
@@ -33,12 +36,16 @@ namespace The_Nightmare
             Player.Stats = new StatsComponent(100, 10, 5, 3);
             Player.Render = new SpriteRenderComponent("Assets/Player.png");
             Player.Collider = new ColliderComponent();*/
-            CurPlayer = new Player(50, 50, 20, 100, MyCanvas);
+            CurPlayer = new Player(10, 10, 20, 100, MyCanvas);
+            CurPlayer.OnAttacked += (targetX, targetY) =>
+            {
+                _hitboxVisualizer.ShowAttackArea(targetX, targetY, 1, 1, 3);
+            };
 
             //몬스터
             ObjectFactory.Initialize(CurPlayer, "Skeleton", new SkeletonCreator(CurPlayer, MyCanvas));
-            GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
-            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
+            GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 50, 10);
+            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 100, 0);
 
             Monsters.Add(skeleton1);
             Monsters.Add(skeleton2);
@@ -95,6 +102,44 @@ namespace The_Nightmare
                 enemy.Animator?.Update(enemy, deltaTime);
                 enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
             }
+        }
+    }
+    public class HitboxVisualizer
+    {
+        private Canvas _canvas;
+        private const int TileSize = 32; // 타일 크기
+        private List<Rectangle> _hitboxes = new List<Rectangle>();
+
+        public HitboxVisualizer(Canvas canvas)
+        {
+            _canvas = canvas;
+        }
+
+        public async void ShowAttackArea(int targetX, int targetY, int width, int height, double duration)
+        {
+            // 기존 히트박스 제거
+            foreach (var rect in _hitboxes)
+            {
+                _canvas.Children.Remove(rect);
+            }
+            _hitboxes.Clear();
+            // 새로운 히트박스 생성
+            Rectangle hitbox = new Rectangle
+            {
+                Width = width * TileSize,
+                Height = height * TileSize,
+                Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0)), // 반투명 빨간색
+                Stroke = Brushes.Red,
+                StrokeThickness = 2
+            };
+            Canvas.SetLeft(hitbox, targetX);
+            Canvas.SetTop(hitbox, targetY);
+            _canvas.Children.Add(hitbox);
+            _hitboxes.Add(hitbox);
+            // 일정 시간 후 히트박스 제거
+            await Task.Delay(TimeSpan.FromSeconds(duration));
+            _canvas.Children.Remove(hitbox);
+            _hitboxes.Remove(hitbox);
         }
     }
 }
