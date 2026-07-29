@@ -13,14 +13,16 @@ namespace The_Nightmare
             int nextX = (int)(owner.X + deltaX);
             int nextY = (int)(owner.Y + deltaY);
 
-            if(nextX >= 0 && nextX < map.GetLength(0) && nextY >= 0 && nextY < map.GetLength(1))
+            /*if(nextX >= 0 && nextX < map.GetLength(0) && nextY >= 0 && nextY < map.GetLength(1))
             {
                 if(map[nextX, nextY] == 0)
                 {
                     owner.X = nextX;
                     owner.Y = nextY;
                 }
-            }
+            }*/
+            owner.X += deltaX;
+            owner.Y += deltaY;
         }
     }
 }

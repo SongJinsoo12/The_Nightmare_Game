@@ -33,10 +33,10 @@ namespace The_Nightmare
             //몬스터
             ObjectFactory.Initialize(CurPlayer, "Skeleton", new SkeletonCreator(CurPlayer, MyCanvas));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
-            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
+            //GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
 
             Monsters.Add(skeleton1);
-            Monsters.Add(skeleton2);
+            //Monsters.Add(skeleton2);
         }
         // 연속적인 입력 처리 - 예시: 이동
         public void ProcessContinuousInput()

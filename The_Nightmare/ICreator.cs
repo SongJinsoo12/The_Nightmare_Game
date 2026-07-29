@@ -22,7 +22,7 @@ namespace The_Nightmare
             _object.Animator = new AnimatorComponent<AnimState>();
             MonsterAIComponent monsterAI = new MonsterAIComponent(_playerRef);
             //임시
-            //monsterAI.OnStateChange += (newState) => _object.Animator.Play(newState);
+            monsterAI.OnStateChange += (newState) => _object.Animator.Play(newState);
             _object.AI = monsterAI;
         }
     }
