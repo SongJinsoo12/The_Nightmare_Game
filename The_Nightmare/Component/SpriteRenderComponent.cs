@@ -18,6 +18,21 @@ namespace The_Nightmare
         public SpriteRenderComponent()
         {
             SpriteControl = new Image();
+
+            RenderOptions.SetBitmapScalingMode(SpriteControl, BitmapScalingMode.NearestNeighbor);
+        }
+
+        public void SetSize(double width, double height)
+        {
+            SpriteControl.Width = width;
+            SpriteControl.Height = height;
+        }
+
+        public void SetScale(double scaleX, double scaleY)
+        {
+            SpriteControl.RenderTransform = new ScaleTransform(scaleX, scaleY);
+            
+            SpriteControl.RenderTransformOrigin = new Point(0.5, 0.5);
         }
 
         public void Update(GameObject owner)

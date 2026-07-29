@@ -39,6 +39,8 @@ namespace The_Nightmare
             this.Render = new SpriteRenderComponent();
             canvas.Children.Add(this.Render.SpriteControl);
 
+            this.Render.SetSize(150, 150);
+
             this.Animator = new AnimatorComponent<AnimState>();
             LoadAnimation();
 
