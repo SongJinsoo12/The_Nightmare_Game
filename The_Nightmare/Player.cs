@@ -130,10 +130,10 @@ namespace The_Nightmare
 
             switch (FacingDirection)
             {
-                case Direction.Up: targetY -= 1; break;
-                case Direction.Down: targetY += 1; break;
-                case Direction.Left: targetX -= 1; break;
-                case Direction.Right: targetX += 1; break;
+                case Direction.Up: targetY -= 32; break;
+                case Direction.Down: targetY += 32; break;
+                case Direction.Left: targetX -= 32; break;
+                case Direction.Right: targetX += 32; break;
             }
 
             //OnAttacked?.Invoke(targetX, targetY);
