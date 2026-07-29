@@ -27,21 +27,38 @@ namespace The_Nightmare.Creators
             CreateBaseComponent(skeleton);
             skeleton.Stats = new StatsComponent(50, 10, 5, 2);
 
-            Animation idleAnim = new Animation(filePath +
+            //R Anim
+            Animation idleRight = new Animation(filePath +
                 "Skeleton_01_White_Idle.png", width, height, 8, 0.1, true);
-            skeleton.Animator.AddAnimation(AnimState.Idle_Right, idleAnim);
+            skeleton.Animator.AddAnimation(AnimState.Idle_Right, idleRight);
 
-            Animation walkAnim = new Animation(filePath +
+            Animation walkRight = new Animation(filePath +
                 "Skeleton_01_White_Walk.png", width, height, 10, 0.08, true);
-            skeleton.Animator.AddAnimation(AnimState.Moving_Right, walkAnim);
+            skeleton.Animator.AddAnimation(AnimState.Moving_Right, walkRight);
 
+            Animation attackRight = new Animation(filePath +
+                "Skeleton_01_White_Attack1.png", width, height, 10, 0.08, true);
+            skeleton.Animator.AddAnimation(AnimState.Attacking_Right, attackRight);
+
+            //L Anim
+            Animation idleLeft = new Animation(filePath +
+                "Skeleton_01_White_Idle.png", width, height, 8, 0.1, true, true);
+            skeleton.Animator.AddAnimation(AnimState.Idle_Left, idleLeft);
+
+            Animation walkLeft = new Animation(filePath +
+                "Skeleton_01_White_Walk.png", width, height, 10, 0.08, true, true);
+            skeleton.Animator.AddAnimation(AnimState.Moving_Left, walkLeft);
+
+            Animation attackLeft = new Animation(filePath +
+                "Skeleton_01_White_Attack1.png", width, height, 10, 0.08, true, true);
+            skeleton.Animator.AddAnimation(AnimState.Attacking_Left, attackLeft);
+
+            //Dead Anim
             Animation dieAnim = new Animation(filePath +
                 "Skeleton_01_White_Die.png", width, height, 13, 0.08, true);
             skeleton.Animator.AddAnimation(AnimState.Dead, dieAnim);
 
-
-            //임시
-            skeleton.Animator.Play(AnimState.Idle_Right);
+            
 
             return skeleton;
         }

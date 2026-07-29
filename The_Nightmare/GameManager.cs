@@ -27,21 +27,16 @@ namespace The_Nightmare
             Map = new int[20,20];
             // 초기화
 
-            /*// 예시
-            Player = new GameObject(1, 1);
-            Player.Move = new MoveComponent();
-            Player.Stats = new StatsComponent(100, 10, 5, 3);
-            Player.Render = new SpriteRenderComponent("Assets/Player.png");
-            Player.Collider = new ColliderComponent();*/
+            // 플레이어
             CurPlayer = new Player(50, 50, 20, 100, MyCanvas);
 
             //몬스터
             ObjectFactory.Initialize(CurPlayer, "Skeleton", new SkeletonCreator(CurPlayer, MyCanvas));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
-            GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
+            //GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
 
             Monsters.Add(skeleton1);
-            Monsters.Add(skeleton2);
+            //Monsters.Add(skeleton2);
         }
         // 연속적인 입력 처리 - 예시: 이동
         public void ProcessContinuousInput()

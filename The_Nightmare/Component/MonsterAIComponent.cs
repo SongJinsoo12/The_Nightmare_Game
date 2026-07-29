@@ -8,22 +8,24 @@ namespace The_Nightmare
 {
     public class MonsterAIComponent : AIComponent
     {
-        public double DetectRange { get; private set; } = 10.0;
+        public double DetectRange { get; private set; } = 200.0;
         public double AttackRange { get; private set; } = 2.0;
 
-        public event Action<MonsterState> OnStateChange;
+        public event Action<AnimState> OnStateChange;
 
-        public void ChangeState(MonsterState newState)
+        public bool Facing { get; private set; } //L or R
+
+        public void ChangeAnimState(AnimState newState)
         {
-            if (CurState == newState) return;
-            CurState = newState;
-            OnStateChange?.Invoke(CurState);
+            if (CurAnimState == newState) return;
+            CurAnimState = newState;
+            OnStateChange?.Invoke(CurAnimState);
         }
 
         public MonsterAIComponent(GameObject target)
         {
             _target = target;
-            CurState = MonsterState.DIE;
+            CurState = MonsterState.CHASE;
         }
 
         public override void Update(GameObject owner)
@@ -54,7 +56,8 @@ namespace The_Nightmare
         {
             if (GetDistance(owner, _target) <= DetectRange)
             {
-                ChangeState(MonsterState.CHASE);
+                //임시
+                ChangeAnimState(AnimState.Idle_Right);
             }
         }
 
@@ -70,22 +73,36 @@ namespace The_Nightmare
 
             if (distance <= AttackRange)
             {
-                ChangeState(MonsterState.ATTACK);
+                if (Facing) ChangeAnimState(AnimState.Attacking_Right);
+                else ChangeAnimState(AnimState.Attacking_Left);
                 return;
             }
             else if (distance > DetectRange) 
             {
-                ChangeState(MonsterState.IDLE);
+                //임시
+                if (Facing) ChangeAnimState(AnimState.Idle_Right);
+                else ChangeAnimState(AnimState.Idle_Left);
                 return;
             }
 
             int mx, my;
-            if (owner.X < _target.X) mx = (int)owner.Stats.Speed;
-            else mx = (int)-(owner.Stats.Speed);
+            if (owner.X < _target.X)
+            {
+                Facing = true;
+                mx = (int)owner.Stats.Speed;
+                ChangeAnimState(AnimState.Moving_Right);
+            }
+            else
+            {
+                Facing = false;
+                mx = (int)-(owner.Stats.Speed);
+                ChangeAnimState(AnimState.Moving_Left);
+            }
             if (owner.Y < _target.Y) my = (int)owner.Stats.Speed;
             else my = (int)-(owner.Stats.Speed);
 
             int[,] tempMap = { { 0, 0, 0, 0 }, }; //임시 맵
+
 
             owner.Move.MoveBy(owner, mx, my, tempMap);
         }
@@ -96,7 +113,8 @@ namespace The_Nightmare
 
             if (GetDistance(owner, _target) > AttackRange)
             {
-                ChangeState(MonsterState.CHASE);
+                //임시
+                ChangeAnimState(AnimState.Attacking_Right);
             }
         }
 
