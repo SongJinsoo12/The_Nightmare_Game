@@ -8,19 +8,21 @@ namespace The_Nightmare
 {
     public class MoveComponent
     {
-        public void MoveBy(GameObject owner, int deltaX, int deltaY, int[,] map)
+        public void MoveBy(GameObject owner, double deltaX, double deltaY, int[,] map)
         {
-            int nextX = owner.X + deltaX;
-            int nextY = owner.Y + deltaY;
+            int nextX = (int)(owner.X + deltaX);
+            int nextY = (int)(owner.Y + deltaY);
 
-            if(nextX >= 0 && nextX < map.GetLength(0) && nextY >= 0 && nextY < map.GetLength(1))
-            {
-                if(map[nextX, nextY] == 0)
-                {
-                    owner.X = nextX;
-                    owner.Y = nextY;
-                }
-            }
+            //if(nextX >= 0 && nextX < map.GetLength(0) && nextY >= 0 && nextY < map.GetLength(1))
+            //{
+            //    if(map[nextX, nextY] == 0)
+            //    {
+            //        owner.X = nextX;
+            //        owner.Y = nextY;
+            //    }
+            //}
+            owner.X = nextX;
+            owner.Y = nextY;
         }
     }
 }

@@ -1,49 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace The_Nightmare
 {
-    public enum PlayerState
-    {
-        Idle,
-        Moving,
-        Attacking,
-        Hit,
-        Dead
-    }
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
     public class Player : GameObject
     {
         // 추가 스탯
         public double m_stamina { get; private set; } = 100;
         public int m_mana { get; private set; } = 100;
-
-        public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
-        public Direction FacingDirection { get; private set; } = Direction.Down;
+        public PlayerState CurrentState { get; private set; } = PlayerState.Moving;
+        public Direction FacingDirection { get; private set; } = Direction.Right;
 
         // 무기 공격력
         public int WeaponAtk { get; private set; } = 0;
         public int TotalAtk => (Stats?.Atk ?? 0) + WeaponAtk;
 
-        public Player(int _x, int _y, double _stamina, int _mana) : base(_x, _y)
+        public event Action<int, int> OnAttacked;
+        public HitboxVisualizer hitboxVisualizer;
+
+        private const string filePath = "pack://application:,,/assets/Soldier/";
+        private const int imgSize = 100;
+
+        public Player(int _x, int _y, double _stamina, int _mana, Canvas canvas) : base(_x, _y)
         {
+            this.X = _x;
+            this.Y = _y;
+
             this.Move = new MoveComponent();
+            this.Stats = new StatsComponent(100, 10, 5, 150, 3);
             this.Stats = new StatsComponent(100, 10, 5, 1.0);
             m_stamina = _stamina;
             m_mana = _mana;
+            hitboxVisualizer = new HitboxVisualizer(canvas);
         }
 
-        public void TryMove(int dx, int dy, int[,] map)
+        this.Collider = new ColliderComponent();
+
+            this.Render = new SpriteRenderComponent();
+        canvas.Children.Add(this.Render.SpriteControl);
+
+            this.Animator = new AnimatorComponent<AnimState>();
+            LoadAnimation();
+
+        UpdateAnimation();
+        }
+        public void TryMove(double dx, double dy, int[,] map)
         {
+            if(CurrentState == PlayerState.Dead) return;
+
             if (CurrentState == PlayerState.Attacking ||
                 CurrentState == PlayerState.Hit)
                 return;
@@ -72,6 +82,7 @@ namespace The_Nightmare
                 ChangeState(PlayerState.Dead);
                 Console.WriteLine("플레이어가 사망했습니다.");
             }
+            Animator?.Update(this, deltaTime);
         }
 
         public void ChangeState(PlayerState newState)
@@ -84,18 +95,38 @@ namespace The_Nightmare
                 return;
             }
             CurrentState = newState;
+            UpdateAnimation();
         }
 
-        public void Attack(List<GameObject> enemies)
+        private void UpdateAnimation()
         {
-            if (CurrentState == PlayerState.Attacking ||
-                CurrentState == PlayerState.Hit)
-                return;
-            ChangeState(PlayerState.Attacking);
+            // 예: CurrentState가 Moving이고 FacingDirection이 Left라면 "Moving_Left" 문자열 생성
+            string animKeyStr = $"{CurrentState}_{FacingDirection}";
 
-            // 범위 계산
-            int targetX = X;
-            int targetY = Y;
+            // 문자열을 PlayerAnimState Enum으로 안전하게 변환하여 재생
+            if (Enum.TryParse(animKeyStr, out AnimState animState))
+            {
+                Animator?.Play(animState);
+            }
+        }
+
+        private void LoadAnimation()
+        {
+            Animation walkRight = new Animation(filePath + "Soldier_Walk.png", imgSize, imgSize, 6, 0.1);
+            Animation idleRight = new Animation(filePath + "Soldier_Idle.png", imgSize, imgSize, 6, 0.1);
+            Animation walkLeft = new Animation(filePath + "Soldier_Walk.png", imgSize, imgSize, 6, 0.1, true, true);
+            Animation idleLeft = new Animation(filePath + "Soldier_Idle.png", imgSize, imgSize, 6, 0.1, true, true);
+
+            this.Animator.AddAnimation(AnimState.Moving_Right, walkRight);
+            this.Animator.AddAnimation(AnimState.Idle_Right, idleRight);
+            this.Animator.AddAnimation(AnimState.Moving_Left, walkLeft);
+            this.Animator.AddAnimation(AnimState.Idle_Left, idleLeft);
+        }
+
+        public void AttackEnemy(List<GameObject> enemies)
+        {
+            int targetX = (int)X + 32;
+            int targetY = (int)Y + 32;
 
             switch (FacingDirection)
             {
@@ -104,19 +135,24 @@ namespace The_Nightmare
                 case Direction.Left: targetX -= 32; break;
                 case Direction.Right: targetX += 32; break;
             }
+            Console.WriteLine($"히트박스 생성: {targetX} {targetY}");
+            hitboxVisualizer.ShowAttackArea(targetX, targetY, 1, 1, 0.2);
+            foreach (var monster in enemies)
+            {
+                Console.WriteLine($"[몬스터 존재] 위치: ({monster.X}, {monster.Y})");
+            }
 
             foreach (var enemy in enemies)
             {
-                if (enemy.X == targetX && enemy.Y == targetY)
+                if (enemy.Collider != null && enemy.Collider.IsActive)
                 {
-                    if (enemy.Stats != null)
+                    if (enemy.Collider.Intersects((int)enemy.X, (int)enemy.Y, targetX, targetY))
                     {
                         enemy.Stats.TakeDamage(TotalAtk);
                         Console.WriteLine($"몬스터에게 {TotalAtk}의 데미지를 입혔습니다.");
                     }
                 }
             }
-            ChangeState(PlayerState.Idle);
         }
 
         public void OnHit(int damage)

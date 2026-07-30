@@ -32,7 +32,7 @@ namespace The_Nightmare
         public MainWindow()
         {
             InitializeComponent();
-            _gameManager = new GameManager();
+            _gameManager = new GameManager(MyCanvas);
 
             this.Loaded += Window_Loaded;
         }
@@ -74,7 +74,7 @@ namespace The_Nightmare
                 _gameManager.Update(TargetFrameTime);
                 _accumlator -= TargetFrameTime;
             }
-            _gameManager.Render();
+
         }
     }
 }
