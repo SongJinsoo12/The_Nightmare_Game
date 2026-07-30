@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Animation.cs" />
-    <Compile Include="AnimationControl.cs" />
+    <Compile Include="AnimationContorol.cs" />
     <Compile Include="Component\AIComponent.cs" />
     <Compile Include="Component\AnimatorComponent.cs" />
     <Compile Include="Component\ColliderComponent.cs" />

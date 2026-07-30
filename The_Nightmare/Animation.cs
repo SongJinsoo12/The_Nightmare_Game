@@ -17,7 +17,7 @@ namespace The_Nightmare
         public double FrameDuration { get; private set; }
         public bool isLoop { get; private set; }
 
-        public Animation(string[] imagePaths, double frameDuration, bool loop=true)
+        public Animation(string[] imagePaths, double frameDuration, bool loop = true)
         {
             FrameDuration = frameDuration;
             isLoop = loop;
@@ -28,7 +28,8 @@ namespace The_Nightmare
             }
         }
 
-        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true)
+        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true,
+                         bool flipHorizontal = false, bool flipVertical = false, double rotationAngle = 0)
         {
             FrameDuration = frameDuration;
             isLoop = loop;
@@ -37,9 +38,11 @@ namespace The_Nightmare
             for (int i = 1; i <= imageNumber; i++)
             {
                 Int32Rect croptImage = new Int32Rect(width * (i - 1), 0, width, height);
-                Frames.Add(new CroppedBitmap(originBitmap, croptImage));
+                CroppedBitmap croppedBitmap = new CroppedBitmap(originBitmap, croptImage);
+                Frames.Add(ApplyTransform(croppedBitmap, flipHorizontal, flipVertical, rotationAngle));
             }
         }
+
         private ImageSource ApplyTransform(BitmapSource source, bool flipHorizontal, bool flipVertical, double rotationAngle)
         {
             if (!flipHorizontal && !flipVertical && rotationAngle == 0)

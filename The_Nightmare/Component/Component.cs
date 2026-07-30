@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Nightmare
+namespace The_Nightmare.Components
 {
     public abstract class Component
     {

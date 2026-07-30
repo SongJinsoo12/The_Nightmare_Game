@@ -33,22 +33,20 @@ namespace The_Nightmare
             this.Y = _y;
 
             this.Move = new MoveComponent();
-            this.Stats = new StatsComponent(100, 10, 5, 150, 3);
-            this.Stats = new StatsComponent(100, 10, 5, 1.0);
+            this.Stats = new StatsComponent(100, 10, 5, 50.0);
             m_stamina = _stamina;
             m_mana = _mana;
             hitboxVisualizer = new HitboxVisualizer(canvas);
-        }
 
-        this.Collider = new ColliderComponent();
+            this.Collider = new ColliderComponent();
 
             this.Render = new SpriteRenderComponent();
-        canvas.Children.Add(this.Render.SpriteControl);
+            canvas.Children.Add(this.Render.SpriteControl);
 
             this.Animator = new AnimatorComponent<AnimState>();
             LoadAnimation();
 
-        UpdateAnimation();
+            UpdateAnimation();
         }
         public void TryMove(double dx, double dy, int[,] map)
         {

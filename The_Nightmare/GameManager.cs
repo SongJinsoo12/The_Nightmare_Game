@@ -22,24 +22,14 @@ namespace The_Nightmare
         public int[,] Map { get; private set; }
         // 플레이어 & 몬스터 갖고오기
 
-        public GameManager()
+        public GameManager(Canvas canvas)
         {
             MyCanvas = canvas;
             _hitboxVisualizer = new HitboxVisualizer(canvas);
             Map = new int[20,20];
             // 초기화
 
-            // 예시
-            Player = new GameObject(1, 1);
-            Player.Move = new MoveComponent();
-            Player.Stats = new StatsComponent(100, 10, 5, 3);
-            Player.Render = new SpriteRenderComponent("Assets/Player.png");
-            Player.Collider = new ColliderComponent(); */
             CurPlayer = new Player(10, 10, 20, 100, MyCanvas);
-            CurPlayer.OnAttacked += (targetX, targetY) =>
-            {
-                _hitboxVisualizer.ShowAttackArea(targetX, targetY, 1, 1, 3);
-            };
 
             //몬스터
             ObjectFactory.Initialize(CurPlayer, "Skeleton", new SkeletonCreator(CurPlayer, MyCanvas));
@@ -95,7 +85,6 @@ namespace The_Nightmare
             }
 
             // 게임 로직 업데이트
-<<<<<<<<< Temporary merge branch 1
             foreach (var enemy in Monsters)
             {
                 enemy.AI?.Update(enemy);
@@ -140,20 +129,6 @@ namespace The_Nightmare
             await Task.Delay(TimeSpan.FromSeconds(duration));
             _canvas.Children.Remove(hitbox);
             _hitboxes.Remove(hitbox);
-        }
-        (var enemy in Monsters)
-            {
-                enemy.AI?.Update(enemy);
-                enemy.Animator?.Update(enemy, deltaTime);
-                enemy.Render?.Update(enemy); // 좌표 갱신 및 프레임 교체
-            }
-=========
-            player.Update(deltaTime);
-        }
-        public void Render()
-        {
-            // 화면 렌더링
->>>>>>>>> Temporary merge branch 2
         }
     }
 }

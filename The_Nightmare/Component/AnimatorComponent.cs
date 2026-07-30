@@ -9,13 +9,13 @@ namespace The_Nightmare
 {
     public class AnimatorComponent<T> where T : Enum
     {
-        public AnimationControl Controller { get; private set; }
+        public AnimationContorol Controller { get; private set; }
 
         private Dictionary<T, Animation> _animations;
 
         public AnimatorComponent()
         {
-            Controller = new AnimationControl();
+            Controller = new AnimationContorol();
             _animations = new Dictionary<T, Animation>();
         }
 
