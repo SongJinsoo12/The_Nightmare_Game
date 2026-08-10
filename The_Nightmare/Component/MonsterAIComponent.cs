@@ -92,7 +92,6 @@ namespace The_Nightmare
             if (owner.X < _target.X)
             {
                 Facing = true;
-                //mx = (int)owner.Stats.Speed;
                 dx += speed;
                 ChangeAnimState(AnimState.Moving_Right);
             }

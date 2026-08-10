@@ -15,6 +15,7 @@ namespace The_Nightmare
         public ImageSource SpriteImage { get; private set; }
         public Image SpriteControl { get; private set; }
 
+
         public SpriteRenderComponent()
         {
             SpriteControl = new Image();
@@ -82,7 +83,7 @@ namespace The_Nightmare
             }
         }
 
-        public SpriteRenderComponent(Canvas canvas, string imageName, int width, int height) {
+        /*public SpriteRenderComponent(Canvas canvas, string imageName, int width, int height) {
             string wpfPath = "pack://application:,,/" + imageName;
             Image img = new Image();
             img.Width = width;
@@ -98,6 +99,6 @@ namespace The_Nightmare
             Canvas.SetTop(img, 0);
 
             canvas.Children.Add(img);
-        }
+        }*/
     }
 }

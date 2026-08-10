@@ -40,6 +40,10 @@ namespace The_Nightmare.Creators
                 "Skeleton_01_White_Attack1.png", width, height, 10, 0.08, true);
             skeleton.Animator.AddAnimation(AnimState.Attacking_Right, attackRight);
 
+            Animation deadRight = new Animation(filePath +
+                "Skeleton_01_White_Die.png", width, height, 13, 0.08);
+            skeleton.Animator.AddAnimation(AnimState.Dead_Right, deadRight);
+
             //L Anim
             Animation idleLeft = new Animation(filePath +
                 "Skeleton_01_White_Idle.png", width, height, 8, 0.1, true, true);
@@ -53,12 +57,9 @@ namespace The_Nightmare.Creators
                 "Skeleton_01_White_Attack1.png", width, height, 10, 0.08, true, true);
             skeleton.Animator.AddAnimation(AnimState.Attacking_Left, attackLeft);
 
-            //Dead Anim
-            Animation dieAnim = new Animation(filePath +
-                "Skeleton_01_White_Die.png", width, height, 13, 0.08, true);
-            skeleton.Animator.AddAnimation(AnimState.Dead, dieAnim);
-
-            
+            Animation deadLeft = new Animation(filePath +
+                "Skeleton_01_White_Die.png", width, height, 13, 0.08, false, true);
+            skeleton.Animator.AddAnimation(AnimState.Dead_Left, deadLeft);
 
             return skeleton;
         }

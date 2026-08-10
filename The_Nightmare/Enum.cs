@@ -21,8 +21,8 @@ namespace The_Nightmare
         Idle_Up, Idle_Down, Idle_Left, Idle_Right,
         Moving_Up, Moving_Down, Moving_Left, Moving_Right,
         Attacking_Up, Attacking_Down, Attacking_Left, Attacking_Right,
-        Hit,
-        Dead
+        Hit_Right, Hit_Left,
+        Dead_Right, Dead_Left,
     }
 
     public enum PlayerState

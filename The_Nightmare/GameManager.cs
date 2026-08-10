@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Controls;
 using The_Nightmare.Creators;
+using The_Nightmare.MonsterCreator;
 
 namespace The_Nightmare
 {
@@ -33,10 +34,12 @@ namespace The_Nightmare
             //몬스터
             ObjectFactory.Initialize(CurPlayer, "Skeleton", new SkeletonCreator(CurPlayer, MyCanvas));
             GameObject skeleton1 = ObjectFactory.Spawn("Skeleton", 5, 5);
-            //GameObject skeleton2 = ObjectFactory.Spawn("Skeleton", 0, 0);
+
+            ObjectFactory.Initialize(CurPlayer, "Orc", new OrcCreator(CurPlayer, MyCanvas));
+            GameObject orc1 = ObjectFactory.Spawn("Orc", 20, 20);
 
             Monsters.Add(skeleton1);
-            //Monsters.Add(skeleton2);
+            Monsters.Add(orc1);
         }
         // 연속적인 입력 처리 - 예시: 이동
         public void ProcessContinuousInput()

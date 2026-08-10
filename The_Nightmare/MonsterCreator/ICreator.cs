@@ -10,7 +10,7 @@ namespace The_Nightmare
     public abstract class ICreator
     {
         protected GameObject _playerRef;
-        protected Canvas _canvasRef;
+        protected Canvas _canvasRef; 
         public abstract GameObject Create(int x, int y);
 
         public void CreateBaseComponent(GameObject _object)

@@ -65,13 +65,14 @@
     <Compile Include="Enum.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
-    <Compile Include="ICreator.cs" />
+    <Compile Include="MonsterCreator\ICreator.cs" />
     <Compile Include="Component\MoveComponent.cs" />
+    <Compile Include="MonsterCreator\OrcCreator.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Component\SpriteRenderComponent.cs" />
     <Compile Include="Component\StatsComponent.cs" />
-    <Compile Include="SkeletonCreators.cs" />
+    <Compile Include="MonsterCreator\SkeletonCreators.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

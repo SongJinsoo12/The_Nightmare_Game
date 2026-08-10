@@ -28,7 +28,7 @@ namespace The_Nightmare
             }
         }
 
-        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = true,
+        public Animation(string imagePath, int width, int height, int imageNumber, double frameDuration, bool loop = false,
                          bool flipHorizontal = false, bool flipVertical = false, double rotationAngle = 0)
         {
             FrameDuration = frameDuration;
