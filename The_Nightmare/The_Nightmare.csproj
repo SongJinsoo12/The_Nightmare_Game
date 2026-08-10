@@ -129,5 +129,32 @@
     <Resource Include="assets\Soldier\Soldier_Idle.png" />
     <Resource Include="assets\Soldier\Soldier_Walk.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Attack01.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Attack02.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Death.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Hurt.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Idle.png" />
+    <Resource Include="assets\Blood Monster_A with shadows\Blood Monster_A_Walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Demon_A with shadows\Demon_A.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Attack01.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Attack02.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Death.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Hurt.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Idle.png" />
+    <Resource Include="assets\Demon_A with shadows\Demon_A_Walk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Orc with shadows\Orc.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Attack01.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Attack02.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Death.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Hurt.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Idle.png" />
+    <Resource Include="assets\Orc with shadows\Orc_Walk.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
